@@ -1,6 +1,6 @@
-# Simple Internet Speed Monitoring
+# Simple Internet Connectivity Monitoring
 
-Monitor the connectivity status and speed of your connection.
+Monitor the connectivity and speed of your internet connection.
 
 ## Dev
 
