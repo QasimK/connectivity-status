@@ -1,10 +1,12 @@
-"""Read relevant data."""
+"""Log data parsing functions."""
 
 import glob
 from datetime import datetime
 
+from .config import LOG_DIR
 
-def gather_pings(log_dir='../pingit/'):
+
+def gather_pings(log_dir=LOG_DIR):
     """Return a dict of list of (datetime, success?) keyed by host"""
     hosts = {}
     for filename in glob.glob(log_dir + '*.log'):
@@ -19,7 +21,7 @@ def gather_pings(log_dir='../pingit/'):
     return hosts
 
 
-def gather_requests(log_dir='../requestit/'):
+def gather_requests(log_dir=LOG_DIR):
     """Return a list of (datetime, seconds or None)"""
 
 

@@ -1,9 +1,20 @@
 #!/bin/python3
+"""Internet connectivity check by ICMP pings (minutely).
+
+This requires the ping system binary.
+
+Data is logged to <host>.log files with the format:
+
+    2016-11-04T21:32:10.405408Z UP
+    2016-11-04T21:32:10.405409Z DOWN
+"""
 
 import os
 import time
 from contextlib import ExitStack
 from datetime import datetime, timezone
+
+from config import LOG_DIR
 
 
 check_hosts = [
@@ -22,7 +33,7 @@ def is_it_up(who):
 def main():
     with ExitStack() as stack:
         fouts = {
-            host: stack.enter_context(open(host + '.log', 'a'))
+            host: stack.enter_context(open(LOG_DIR + host + '.log', 'a'))
             for host in check_hosts
         }
 
